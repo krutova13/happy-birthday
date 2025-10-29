@@ -508,7 +508,7 @@
     }
   }
 
-  .screamer-image svg {
+  .screamer-image img {
     animation: screamer-pulse 1s ease-in-out infinite;
   }
 
@@ -522,17 +522,14 @@
       filter: brightness(0.9) contrast(1.5) saturate(1.1);
     }
 
-    .screamer-image svg {
+    .screamer-image img {
       width: 100%;
       height: 100%;
+      animation: none; /* Disable pulse on mobile for performance */
     }
 
     .screamer-glitch {
       animation-duration: 0.2s;
-    }
-    
-    .screamer-image svg {
-      animation: none; /* Disable pulse on mobile for performance */
     }
   }
 

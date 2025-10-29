@@ -6,6 +6,7 @@ const MiniGame = ({ onComplete, onClose }) => {
   const [score, setScore] = useState(0)
   const [timeLeft, setTimeLeft] = useState(30)
   const [targets, setTargets] = useState([])
+  const [passwordRevealed, setPasswordRevealed] = useState(false)
   const gameSoundRef = useRef(null)
   const TARGET_COUNT = 30
 
@@ -178,6 +179,7 @@ const MiniGame = ({ onComplete, onClose }) => {
     setScore(0)
     setTimeLeft(30)
     setTargets([])
+    setPasswordRevealed(false) // Reset password visibility
     // Spawn first target immediately
     setTimeout(() => {
       spawnNewTarget()
@@ -287,9 +289,34 @@ const MiniGame = ({ onComplete, onClose }) => {
               <h2 className="font-eb-garamond md:font-creepster text-4xl md:text-6xl text-horror-red mb-6 flicker">
                 ПОБЕДА!
               </h2>
-              <p className="font-eb-garamond text-2xl md:text-3xl text-horror-red font-semibold mb-8">
+              <p className="font-eb-garamond text-2xl md:text-3xl text-horror-red font-semibold mb-6">
                 Добро пожаловать в дом.
               </p>
+              
+              {/* Password section */}
+              <div className="mb-8">
+                <p className="font-eb-garamond text-lg md:text-xl text-horror-dark-red mb-3">
+                  Пароль для входа:
+                </p>
+                <motion.div
+                  onClick={() => setPasswordRevealed(!passwordRevealed)}
+                  className="inline-block cursor-pointer px-6 py-3 bg-horror-black border-2 border-horror-red rounded transition-all duration-300 hover:border-horror-dark-red"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{
+                    filter: passwordRevealed ? 'blur(0px)' : 'blur(8px)',
+                    userSelect: 'none'
+                  }}
+                >
+                  <span className="font-eb-garamond md:font-creepster text-2xl md:text-3xl text-horror-red font-bold">
+                    янеубийца
+                  </span>
+                </motion.div>
+                <p className="font-eb-garamond text-sm text-horror-dark-red mt-2 italic">
+                  Нажми, чтобы увидеть
+                </p>
+              </div>
+
               <motion.button
                 onClick={onClose}
                 className="px-8 py-4 bg-horror-dark-red text-horror-white font-eb-garamond md:font-creepster text-xl md:text-2xl rounded border-2 border-horror-red hover:bg-horror-red transition-colors"
