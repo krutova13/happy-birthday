@@ -217,7 +217,7 @@ const MiniGame = ({ onComplete, onClose }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              <h2 className="font-creepster text-4xl md:text-6xl text-horror-red mb-6 flicker">
+              <h2 className="font-eb-garamond md:font-creepster text-4xl md:text-6xl text-horror-red mb-6 flicker">
                 ПРОВЕРКА СМЕЛОСТИ
               </h2>
               <p className="font-eb-garamond text-lg md:text-xl mb-4">
@@ -228,7 +228,7 @@ const MiniGame = ({ onComplete, onClose }) => {
               </p>
               <motion.button
                 onClick={startGame}
-                className="px-8 py-4 bg-horror-dark-red text-horror-white font-creepster text-xl md:text-2xl rounded border-2 border-horror-red hover:bg-horror-red transition-colors"
+                className="px-8 py-4 bg-horror-dark-red text-horror-white font-eb-garamond md:font-creepster text-xl md:text-2xl rounded border-2 border-horror-red hover:bg-horror-red transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -241,12 +241,12 @@ const MiniGame = ({ onComplete, onClose }) => {
             <div className="relative min-h-[400px]">
               <div className="absolute top-0 left-0 right-0 flex justify-between items-center mb-4 pb-4 border-b-2 border-horror-red">
                 <div>
-                  <span className="font-creepster text-2xl text-horror-red">Уничтожено: </span>
-                  <span className="font-creepster text-3xl text-horror-red">{score}/{TARGET_COUNT}</span>
+                  <span className="font-eb-garamond md:font-creepster text-2xl text-horror-red">Уничтожено: </span>
+                  <span className="font-eb-garamond md:font-creepster text-3xl text-horror-red">{score}/{TARGET_COUNT}</span>
                 </div>
                 <div>
-                  <span className="font-creepster text-2xl text-horror-red">Время: </span>
-                  <span className={`font-creepster text-3xl ${timeLeft <= 3 ? 'text-horror-dark-red animate-pulse' : 'text-horror-red'}`}>
+                  <span className="font-eb-garamond md:font-creepster text-2xl text-horror-red">Время: </span>
+                  <span className={`font-eb-garamond md:font-creepster text-3xl ${timeLeft <= 3 ? 'text-horror-dark-red animate-pulse' : 'text-horror-red'}`}>
                     {timeLeft}
                   </span>
                 </div>
@@ -284,7 +284,7 @@ const MiniGame = ({ onComplete, onClose }) => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
             >
-              <h2 className="font-creepster text-4xl md:text-6xl text-horror-red mb-6 flicker">
+              <h2 className="font-eb-garamond md:font-creepster text-4xl md:text-6xl text-horror-red mb-6 flicker">
                 ПОБЕДА!
               </h2>
               <p className="font-eb-garamond text-2xl md:text-3xl text-horror-red font-semibold mb-8">
@@ -292,7 +292,7 @@ const MiniGame = ({ onComplete, onClose }) => {
               </p>
               <motion.button
                 onClick={onClose}
-                className="px-8 py-4 bg-horror-dark-red text-horror-white font-creepster text-xl md:text-2xl rounded border-2 border-horror-red hover:bg-horror-red transition-colors"
+                className="px-8 py-4 bg-horror-dark-red text-horror-white font-eb-garamond md:font-creepster text-xl md:text-2xl rounded border-2 border-horror-red hover:bg-horror-red transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -307,7 +307,7 @@ const MiniGame = ({ onComplete, onClose }) => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
             >
-              <h2 className="font-creepster text-4xl md:text-6xl text-horror-red mb-6 flicker">
+              <h2 className="font-eb-garamond md:font-creepster text-4xl md:text-6xl text-horror-red mb-6 flicker">
                 ПРОВАЛ...
               </h2>
               <p className="font-eb-garamond text-lg md:text-xl mb-4">
@@ -319,7 +319,7 @@ const MiniGame = ({ onComplete, onClose }) => {
               <div className="flex gap-4 justify-center">
                 <motion.button
                   onClick={startGame}
-                  className="px-6 py-3 bg-horror-dark-red text-horror-white font-creepster text-lg rounded border-2 border-horror-red hover:bg-horror-red transition-colors"
+                  className="px-6 py-3 bg-horror-dark-red text-horror-white font-eb-garamond md:font-creepster text-lg rounded border-2 border-horror-red hover:bg-horror-red transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -327,7 +327,7 @@ const MiniGame = ({ onComplete, onClose }) => {
                 </motion.button>
                 <motion.button
                   onClick={onClose}
-                  className="px-6 py-3 bg-transparent text-horror-dark-red font-creepster text-lg rounded border-2 border-horror-dark-red hover:border-horror-red transition-colors"
+                  className="px-6 py-3 bg-transparent text-horror-dark-red font-eb-garamond md:font-creepster text-lg rounded border-2 border-horror-dark-red hover:border-horror-red transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

@@ -79,7 +79,7 @@ const RSVP = () => {
           >
             <motion.button
               onClick={() => setShowMiniGame(true)}
-              className="px-8 py-4 bg-horror-dark-red text-horror-white font-creepster text-xl md:text-2xl rounded border-2 border-horror-red hover:bg-horror-red transition-colors duration-300"
+              className="px-8 py-4 bg-horror-dark-red text-horror-white font-eb-garamond md:font-creepster text-xl md:text-2xl rounded border-2 border-horror-red hover:bg-horror-red transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -88,7 +88,7 @@ const RSVP = () => {
 
             <motion.button
               onClick={handleNoClick}
-              className="px-8 py-4 bg-transparent text-horror-dark-red font-creepster text-xl md:text-2xl rounded border-2 border-horror-dark-red hover:border-horror-red transition-colors duration-300"
+              className="px-8 py-4 bg-transparent text-horror-dark-red font-eb-garamond md:font-creepster text-xl md:text-2xl rounded border-2 border-horror-dark-red hover:border-horror-red transition-colors duration-300"
               whileHover={{ 
                 scale: 1.05,
                 x: [0, -2, 2, -2, 2, 0]
@@ -125,7 +125,7 @@ const RSVP = () => {
               }}
             >
               <motion.h2 
-                className="font-creepster text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-horror-red text-center not-italic font-bold"
+                className="font-eb-garamond md:font-creepster text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-horror-red text-center not-italic font-bold"
                 animate={{
                   scale: [1, 1.05, 1]
                 }}

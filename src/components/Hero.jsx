@@ -98,7 +98,7 @@ const Hero = ({ onEnter }) => {
 
         <motion.button
           onClick={handleEnterClick}
-          className="px-8 py-4 bg-horror-dark-red text-horror-white font-creepster text-xl md:text-2xl rounded border-2 border-horror-red hover:bg-horror-red transition-colors duration-300 cursor-pointer"
+          className="px-8 py-4 bg-horror-dark-red text-horror-white font-eb-garamond md:font-creepster text-xl md:text-2xl rounded border-2 border-horror-red hover:bg-horror-red transition-colors duration-300 cursor-pointer"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 2, duration: 0.5 }}

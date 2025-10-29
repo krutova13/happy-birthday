@@ -66,7 +66,7 @@ const Games = () => {
                 boxShadow: '0 0 30px rgba(178, 34, 34, 0.7), 0 0 50px rgba(139, 0, 0, 0.3)'
               }}
             >
-              <h3 className="font-creepster text-2xl md:text-3xl text-horror-red mb-4">
+              <h3 className="font-eb-garamond md:font-creepster text-2xl md:text-3xl text-horror-red mb-4">
                 {game.title}
               </h3>
               <p className="font-eb-garamond text-base md:text-lg leading-relaxed">
@@ -106,7 +106,7 @@ const Games = () => {
                   ✕
                 </button>
 
-                <h3 className="font-creepster text-3xl md:text-4xl text-horror-red mb-6 flicker">
+                <h3 className="font-eb-garamond md:font-creepster text-3xl md:text-4xl text-horror-red mb-6 flicker">
                   {selectedGame.title}
                 </h3>
                 <div className="font-eb-garamond text-base md:text-lg leading-relaxed whitespace-pre-line">
