@@ -27,12 +27,15 @@ const Hero = ({ onEnter }) => {
     }, 100)
   }
 
-  // Create smoke particles
+  // Create smoke particles - fewer on mobile for performance
   useEffect(() => {
     const smokeContainer = document.getElementById('smoke-container')
     if (!smokeContainer) return
 
-    for (let i = 0; i < 20; i++) {
+    const isMobile = window.innerWidth <= 768
+    const particleCount = isMobile ? 10 : 20
+
+    for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div')
       particle.className = 'smoke-particle'
       particle.style.left = `${Math.random() * 100}%`

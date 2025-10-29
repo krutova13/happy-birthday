@@ -64,34 +64,62 @@ function App() {
 
   useEffect(() => {
     if (!scrollAllowed) {
-      // Block scroll
+      // Block scroll - use CSS only for better performance
       document.body.style.overflow = 'hidden'
       document.documentElement.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
+      document.body.style.top = `-${window.scrollY}px`
       
-      // Prevent scroll with wheel
+      // Store scroll position
+      const scrollY = window.scrollY
+      
+      // Prevent scroll with wheel (desktop)
       const preventScroll = (e) => {
         e.preventDefault()
         e.stopPropagation()
         return false
       }
       
+      // Prevent scroll with touch (mobile) - optimized
+      let touchStartY = 0
       const preventTouchMove = (e) => {
-        if (e.touches.length > 0) {
+        const touchY = e.touches[0].clientY
+        const touchDiff = Math.abs(touchY - touchStartY)
+        if (touchDiff > 10) {
           e.preventDefault()
         }
       }
       
+      const handleTouchStart = (e) => {
+        touchStartY = e.touches[0].clientY
+      }
+      
       window.addEventListener('wheel', preventScroll, { passive: false })
+      window.addEventListener('touchstart', handleTouchStart, { passive: true })
       window.addEventListener('touchmove', preventTouchMove, { passive: false })
       
       return () => {
         window.removeEventListener('wheel', preventScroll)
+        window.removeEventListener('touchstart', handleTouchStart)
         window.removeEventListener('touchmove', preventTouchMove)
+        // Restore scroll position when unblocking
+        document.body.style.position = ''
+        document.body.style.width = ''
+        document.body.style.top = ''
+        window.scrollTo(0, scrollY)
       }
     } else {
       // Allow scroll
+      const scrollY = parseInt(document.body.style.top || '0', 10) * -1 || 0
       document.body.style.overflow = ''
       document.documentElement.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
+      document.body.style.top = ''
+      if (scrollY > 0) {
+        window.scrollTo(0, scrollY)
+      }
     }
   }, [scrollAllowed])
 

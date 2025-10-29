@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 const games = [
   {
@@ -29,6 +30,11 @@ const Games = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [selectedGame, setSelectedGame] = useState(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <section
@@ -74,40 +80,44 @@ const Games = () => {
         </div>
       </div>
 
-      {/* Game Details Modal */}
-      <AnimatePresence>
-        {selectedGame && (
-          <motion.div
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedGame(null)}
-          >
+      {/* Game Details Modal - rendered via portal to body */}
+      {mounted && createPortal(
+        <AnimatePresence>
+          {selectedGame && (
             <motion.div
-              className="bg-horror-black border-4 border-horror-red rounded-lg p-8 max-w-2xl w-full relative max-h-[90vh] overflow-y-auto"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
+              className="fixed inset-0 bg-black/90 flex items-center justify-center px-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedGame(null)}
+              style={{ zIndex: 9998 }}
             >
-              <button
-                onClick={() => setSelectedGame(null)}
-                className="absolute top-4 right-4 text-horror-red text-2xl hover:text-horror-dark-red transition-colors"
+              <motion.div
+                className="bg-horror-black border-4 border-horror-red rounded-lg p-8 max-w-2xl w-full relative max-h-[90vh] overflow-y-auto"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                onClick={(e) => e.stopPropagation()}
               >
-                ✕
-              </button>
+                <button
+                  onClick={() => setSelectedGame(null)}
+                  className="absolute top-4 right-4 text-horror-red text-2xl hover:text-horror-dark-red transition-colors z-10"
+                >
+                  ✕
+                </button>
 
-              <h3 className="font-creepster text-3xl md:text-4xl text-horror-red mb-6 flicker">
-                {selectedGame.title}
-              </h3>
-              <div className="font-eb-garamond text-base md:text-lg leading-relaxed whitespace-pre-line">
-                {selectedGame.fullDescription}
-              </div>
+                <h3 className="font-creepster text-3xl md:text-4xl text-horror-red mb-6 flicker">
+                  {selectedGame.title}
+                </h3>
+                <div className="font-eb-garamond text-base md:text-lg leading-relaxed whitespace-pre-line">
+                  {selectedGame.fullDescription}
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   )
 }

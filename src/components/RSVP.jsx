@@ -9,9 +9,26 @@ const RSVP = () => {
   const [showScreamer, setShowScreamer] = useState(false)
   const [showMiniGame, setShowMiniGame] = useState(false)
   const screamerRef = useRef(null)
+  const screamSoundRef = useRef(null)
 
   // Replace with your actual Telegram group link
   const telegramLink = 'https://t.me/your_telegram_group'
+
+  // Preload scream sound
+  useEffect(() => {
+    screamSoundRef.current = new Audio('/scream-sound.wav')
+    screamSoundRef.current.volume = 0.7
+    screamSoundRef.current.preload = 'auto'
+    // Try to load the audio
+    screamSoundRef.current.load()
+    
+    return () => {
+      if (screamSoundRef.current) {
+        screamSoundRef.current.pause()
+        screamSoundRef.current.src = ''
+      }
+    }
+  }, [])
 
   const handleGameComplete = () => {
     setShowMiniGame(false)
@@ -29,12 +46,13 @@ const RSVP = () => {
 
   const handleNoClick = () => {
     setShowScreamer(true)
-    // Scream sound
-    const screamSound = new Audio('/scream-sound.wav')
-    screamSound.volume = 0.7
-    screamSound.play().catch(() => {
-      // Ignore autoplay restrictions
-    })
+    // Play preloaded scream sound immediately
+    if (screamSoundRef.current) {
+      screamSoundRef.current.currentTime = 0 // Reset to start
+      screamSoundRef.current.play().catch(() => {
+        // Ignore autoplay restrictions
+      })
+    }
   }
 
   return (

@@ -5,8 +5,11 @@ const BloodBackground = () => {
     const container = document.getElementById('blood-background')
     if (!container) return
 
-    // Create blood drops
-    for (let i = 0; i < 15; i++) {
+    const isMobile = window.innerWidth <= 768
+
+    // Create blood drops - fewer on mobile
+    const dropCount = isMobile ? 8 : 15
+    for (let i = 0; i < dropCount; i++) {
       const drop = document.createElement('div')
       drop.className = 'blood-drop'
       const size = 30 + Math.random() * 50
@@ -19,8 +22,9 @@ const BloodBackground = () => {
       container.appendChild(drop)
     }
 
-    // Create blood splatters
-    for (let i = 0; i < 20; i++) {
+    // Create blood splatters - fewer on mobile
+    const splatterCount = isMobile ? 10 : 20
+    for (let i = 0; i < splatterCount; i++) {
       const splatter = document.createElement('div')
       splatter.className = 'blood-splatter'
       const size = 40 + Math.random() * 80
@@ -33,8 +37,9 @@ const BloodBackground = () => {
       container.appendChild(splatter)
     }
 
-    // Create blood stains on walls
-    for (let i = 0; i < 10; i++) {
+    // Create blood stains on walls - fewer on mobile
+    const stainCount = isMobile ? 5 : 10
+    for (let i = 0; i < stainCount; i++) {
       const stain = document.createElement('div')
       stain.className = 'blood-stain'
       const width = 60 + Math.random() * 100
