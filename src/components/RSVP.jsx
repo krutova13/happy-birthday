@@ -125,7 +125,7 @@ const RSVP = () => {
               }}
             >
               <motion.h2 
-                className="font-creepster text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-horror-red text-center"
+                className="font-creepster text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-horror-red text-center not-italic font-bold"
                 animate={{
                   scale: [1, 1.05, 1]
                 }}
@@ -135,11 +135,17 @@ const RSVP = () => {
                   ease: "easeInOut"
                 }}
                 style={{
-                  textShadow: '0 0 10px #b22222, 0 0 20px #b22222, 0 0 30px #8b0000'
+                  textShadow: '0 0 10px #b22222, 0 0 20px #b22222, 0 0 30px #8b0000',
+                  fontStyle: 'normal',
+                  fontWeight: 'bold'
                 }}
               >
                 <motion.span 
-                  className="screamer-text-glow inline-block"
+                  className="screamer-text-glow inline-block not-italic font-bold"
+                  style={{
+                    fontStyle: 'normal',
+                    fontWeight: 'bold'
+                  }}
                   animate={{
                     x: [0, -2, 2, -1, 1, 0]
                   }}

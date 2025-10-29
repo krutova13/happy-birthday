@@ -56,6 +56,60 @@ const MiniGame = ({ onComplete, onClose }) => {
     }
   }, [])
 
+  // Block scroll when mini-game is open
+  useEffect(() => {
+    // Store current scroll position
+    const scrollY = window.scrollY
+    
+    // Block scroll
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.position = 'fixed'
+    document.body.style.width = '100%'
+    document.body.style.top = `-${scrollY}px`
+    
+    // Prevent scroll with wheel (desktop)
+    const preventScroll = (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      return false
+    }
+    
+    // Prevent scroll with touch (mobile)
+    let touchStartY = 0
+    const preventTouchMove = (e) => {
+      const touchY = e.touches[0].clientY
+      const touchDiff = Math.abs(touchY - touchStartY)
+      if (touchDiff > 10) {
+        e.preventDefault()
+      }
+    }
+    
+    const handleTouchStart = (e) => {
+      touchStartY = e.touches[0].clientY
+    }
+    
+    window.addEventListener('wheel', preventScroll, { passive: false })
+    window.addEventListener('touchstart', handleTouchStart, { passive: true })
+    window.addEventListener('touchmove', preventTouchMove, { passive: false })
+    
+    return () => {
+      // Restore scroll when component unmounts
+      window.removeEventListener('wheel', preventScroll)
+      window.removeEventListener('touchstart', handleTouchStart)
+      window.removeEventListener('touchmove', preventTouchMove)
+      
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
+      document.body.style.top = ''
+      
+      // Restore scroll position
+      window.scrollTo(0, scrollY)
+    }
+  }, [])
+
 
   // Timer
   useEffect(() => {

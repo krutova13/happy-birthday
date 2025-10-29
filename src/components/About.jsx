@@ -54,7 +54,7 @@ const About = () => {
             href="https://yandex.ru/maps/-/CLftrD9h"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-horror-dark-red text-horror-white font-eb-garamond text-lg rounded hover:bg-horror-red transition-colors duration-300 border border-horror-red"
+            className="inline-block px-6 py-3 bg-horror-dark-red text-horror-white font-creepster text-lg rounded hover:bg-horror-red transition-colors duration-300 border border-horror-red"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
