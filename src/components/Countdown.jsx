@@ -60,7 +60,7 @@ const Countdown = () => {
             transition={{ delay: index * 0.1, duration: 0.5 }}
           >
             <motion.div
-              className="text-4xl md:text-6xl font-eb-garamond md:font-creepster text-horror-red flicker"
+              className="text-4xl md:text-6xl font-creepster text-horror-red flicker"
               animate={{
                 scale: [1, 1.05, 1]
               }}

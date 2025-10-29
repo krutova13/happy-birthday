@@ -14,13 +14,17 @@ const RSVP = () => {
   // Replace with your actual Telegram group link
   const telegramLink = 'https://t.me/your_telegram_group'
 
-  // Preload scream sound
+  // Preload scream sound and screamer image
   useEffect(() => {
+    // Preload scream sound
     screamSoundRef.current = new Audio('/scream-sound.wav')
     screamSoundRef.current.volume = 0.7
     screamSoundRef.current.preload = 'auto'
-    // Try to load the audio
     screamSoundRef.current.load()
+    
+    // Preload screamer image
+    const screamerImage = new Image()
+    screamerImage.src = '/screamer.png'
     
     return () => {
       if (screamSoundRef.current) {
