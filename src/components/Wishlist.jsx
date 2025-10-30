@@ -4,7 +4,7 @@ const Wishlist = () => (
   <section className="min-h-[30vh] flex items-center justify-center py-20 px-4 relative z-10">
     <div className="max-w-3xl mx-auto text-center">
       <h2 className="text-5xl md:text-7xl font-creepster text-horror-red mb-12 flicker">
-        Список жертвоприношений
+        GIFT RITUAL
       </h2>
       <p className="font-eb-garamond text-lg md:text-2xl text-horror-dark-red mb-6">
         Говорят, лучший способ выжить на этой вечеринке —<br />

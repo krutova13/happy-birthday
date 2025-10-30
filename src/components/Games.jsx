@@ -48,7 +48,7 @@ const Games = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          ИГРЫ НОЧИ
+          NIGHT GAMES
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -24,7 +24,7 @@ const RSVP = () => {
     
     // Preload screamer image
     const screamerImage = new Image()
-    screamerImage.src = '/screamer.png'
+    screamerImage.src = '/screamer.jpg'
     
     return () => {
       if (screamSoundRef.current) {
@@ -72,7 +72,7 @@ const RSVP = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            Ты войдёшь в дом?
+            DARE TO ENTER THE HOUSE OF HORROR?
           </motion.h2>
 
           <motion.div
@@ -172,7 +172,7 @@ const RSVP = () => {
             >
               <div className="screamer-glitch" />
               <img
-                src="/screamer.png"
+                src="/screamer.jpg"
                 alt="Screamer"
                 className="w-full h-full object-contain"
                 style={{ 

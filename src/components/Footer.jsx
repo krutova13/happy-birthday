@@ -18,7 +18,7 @@ const Footer = () => {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          Каждый год они возвращаются. В этот — ты среди них.
+          Каждый год они возвращаются. В этот раз — ты среди них.
         </motion.p>
 
         <motion.p
