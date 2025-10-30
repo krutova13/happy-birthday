@@ -17,7 +17,7 @@ const Wishlist = () => (
         href="https://followish.io/mywishlist/xzzbdyw6febq62"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block px-8 py-5 bg-horror-black border-2 border-horror-red rounded-lg text-horror-red text-2xl md:text-3xl font-creepster shadow-lg hover:bg-horror-dark-red hover:text-horror-white transition-colors duration-300 flicker animate-pulse mt-2"
+        className="inline-block px-5 py-3 bg-horror-black border-2 border-horror-red rounded-lg text-horror-red text-xl md:text-2xl font-creepster shadow-lg hover:bg-horror-dark-red hover:text-horror-white transition-colors duration-300 flicker animate-pulse mt-2"
       >
         Вишлист для смелых
       </a>
