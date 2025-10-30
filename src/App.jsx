@@ -7,6 +7,7 @@ import RSVP from './components/RSVP'
 import Footer from './components/Footer'
 import BloodBackground from './components/BloodBackground'
 import BackgroundMusic from './components/BackgroundMusic'
+import Wishlist from './components/Wishlist'
 
 function App() {
   const [scrollAllowed, setScrollAllowed] = useState(() => {
@@ -131,6 +132,7 @@ function App() {
       <About />
       <DressCode />
       <Games />
+      <Wishlist />
       <RSVP />
       <Footer />
     </div>

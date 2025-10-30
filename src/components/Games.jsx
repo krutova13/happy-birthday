@@ -41,9 +41,9 @@ const Games = () => {
       ref={ref}
       className="min-h-screen flex items-center justify-center py-20 px-4 relative z-10"
     >
-      <div className="max-w-4xl mx-auto w-full">
+      <div className="max-w-4xl mx-auto w-full text-center">
         <motion.h2
-          className="text-5xl md:text-7xl font-eb-garamond md:font-creepster text-horror-red mb-16 text-center flicker"
+          className="text-5xl md:text-7xl font-creepster text-horror-red mb-12 flicker"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}

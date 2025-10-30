@@ -70,7 +70,7 @@ const Hero = ({ onEnter }) => {
         transition={{ duration: 1.5 }}
       >
         <motion.h1
-          className="text-7xl md:text-9xl font-eb-garamond md:font-creepster text-horror-red mb-4 flicker"
+          className="text-7xl md:text-9xl font-creepster text-horror-red mb-4 flicker"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
